@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var Abc=function(){
+            var [x,setX]=React.useState()
+
+            function handleChange(ev){
+                setX(ev.target.value)
+            }
+
+            function handleClick(){
+                setX(x.toUpperCase())
+            }
+            return(
+                
+                
+                    <div>
+                        <input type="text" value={x} onChange={handleChange}/>
+                        <button onClick={handleClick}>click to see alert</button>   
+                        <h1>{x}</h1>
+                    </div>
+                 
+                
+            )
+            }
+            ReactDOM.render(<Abc/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
