@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var Abc=function(){
+                 var [x,setX]=React.useState()
+                 var [y,setY]=React.useState()
+                 var [b,setB]=React.useState()
+
+                 function handleChange1(ev){
+                        setX(ev.target.value)
+                 }
+
+                function handleChange2(ev){
+                    setY(ev.target.value)
+                }
+
+               function abc(){
+                setB(x*y)
+               }
+              
+               return(
+                <div>
+                <input type="text" onChange={handleChange1}/>    
+                <input type="text" onChange={handleChange2}/> 
+                <button onClick={abc}>multiple</button>  
+                <h1>{b}</h1> 
+                </div>
+               )
+
+            }
+            ReactDOM.render(<Abc/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
