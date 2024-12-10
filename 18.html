@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+         var Abc=function(){
+            var [x,setX]=React.useState()
+            var [y,setY]=React.useState()
+        
+            function handleClick1(ev){
+                setX(ev.target.value)
+            }
+            function handleClick2(ev){
+                setY(ev.target.value)
+            }
+        
+            return(
+                <div>
+                    <input type="radio" name="country" value="india" onClick={handleClick1}/>India
+                    <input type="radio"  name="country"  value="usa"   onClick={handleClick1}/> United Stated of america
+                    <h1>{x}</h1>   
+                </div>
+            )
+         }
+         ReactDOM.render(<Abc/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
