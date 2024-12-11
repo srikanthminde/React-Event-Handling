@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var Abc=function(){
+                var [x,setX]=React.useState([])
+               
+
+                function handleX(ev){
+                    if(ev.target.checked===false){
+                      var  update=x.filter((x)=>x !==ev.target.value)
+                      setX(update)
+                    }
+                    else{
+                        setX([...x,ev.target.value])
+                    }
+                }
+                return (
+             <div >
+                    {
+                 <div>
+                    <input onChange={handleX} type="checkbox" name="corse" value="Angulare"/>  Angulare  <br/>
+                    <input onChange={handleX}  type="checkbox" name="corse" value="Python"/>   Python <br/>
+                    <input  onChange={handleX} type="checkbox" name="corse" value="MAngodb"/>    MangoDb<br/>
+                    <input  onChange={handleX} type="checkbox" name="corse" value="EXpressjs"/>   Express js<br/> 
+                    <input onChange={handleX}  type="checkbox" name="corse" value="Nodejs"/>    Nodejs<br/>
+                    <input  onChange={handleX} type="checkbox" name="corse" value="Reactjs"/>    ReactJs<br/>
+                    <input onChange={handleX}  type="checkbox" name="corse" value="My sql"/>   Mysql<br/> 
+                    <input  onChange={handleX} type="checkbox" name="corse" value="Java"/>    Java<br/>
+                  
+                     <h1>{x.join(",")}</h1>    
+             </div>
+                    }
+               
+                    </div>
+                )
+            }
+            ReactDOM.render(<Abc/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
