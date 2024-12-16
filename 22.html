@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var Abc=function(){
+                var [x,setX]=React.useState('')
+                var handleClick=(newValue)=>{
+                    setX(newValue)
+                }
+               
+                return(
+                    <div>
+                    <button onClick={()=>handleClick(10)}>button1</button>    
+                    <button onClick={()=>handleClick(100)}>button2</button>    
+                    <button onClick={()=>handleClick(999)}>button3</button>    
+                    <button onClick={()=>handleClick(1000)}>button4</button>    
+              
+                    <h1>{x}</h1>   
+                    </div>
+                )
+            }
+            ReactDOM.render(<Abc/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
