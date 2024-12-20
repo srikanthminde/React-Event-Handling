@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <style>
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        gap: 20px;
+      }
+      li {
+        border: 2px solid;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        width: 200px;
+      }
+      img {
+        width: 100px;
+        height: auto;
+        text-align: center;
+        padding: 20px;
+      }
+      div {
+        text-align: center;
+      }
+      #q {
+        display: flex;
+        padding: 10px;
+        display: block;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 60%;
+      }
+      #gp {
+        width: 300px;
+        padding: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body style="display: flex;">
+    <div id="q">
+      <center>
+        <input id="gp" type="text" placeholder="countries" onkeyup="countriesall()" />
+      </center>
+      <ul id="r"></ul>
+    </div>
+
+    <script>
+      var countrydata = [];
+      fetch("https://restcountries.com/v3/all").then((response) =>
+       response.json()).then((data) => {
+          countrydata = data;
+          displayCountries(countrydata); 
+        });
+
+      function displayCountries(countries) {
+        const list = document.getElementById("r");
+        list.innerHTML = "";
+        countries.forEach((o) => {
+          var nli = document.createElement("li");
+
+          // Country Name
+          var countryName = document.createElement("div");
+          countryName.innerHTML = "Country: " + o.name.common;
+          nli.appendChild(countryName);
+
+          // Flag
+          var img = document.createElement("img");
+          img.src = o.flags[0];
+          nli.appendChild(img);
+
+          // Region
+          var reg = document.createElement("div");
+          reg.innerHTML = "Region: " + o.region;
+          nli.appendChild(reg);
+
+          // Population
+          var pop = document.createElement("div");
+          pop.innerHTML = "Population: " + o.population.toLocaleString();
+          nli.appendChild(pop);
+          list.appendChild(nli);
+        });
+      }
+      function countriesall() {
+        var searchTerm = document.getElementById("gp").value.toUpperCase();
+        var filteredCountries = countrydata.filter((country) =>
+          country.name.common.toUpperCase().includes(searchTerm)
+        );
+        displayCountries(countriesall);
+      }
+    </script>
+  </body>
+</html>
