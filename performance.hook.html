@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+           var  Child=React.memo(function(props){
+                console.log("child comeponent")
+                return(
+                    <div  style={{border:"1px solid",padding:"10px",margin:"10px"}}>
+                    <h1>edhi chaild:{props.y}</h1>
+                </div>
+                )
+            })
+            function Parent(){
+                var [x,setX]=React.useState(1)
+                var [y,setY]=React.useState(10)
+                function abc(){
+                    setX(x+1)
+                    if(x%5==0){
+                        setY(x)
+                    }
+                }
+                return(
+                    <div style={{border:"1px solid",padding:"10px",margin:"10px"}}>
+                        <h1>this is x value:{x}</h1>
+                        <h1>this is y value:{y}</h1>
+                    <button onClick={abc}>inc</button>
+                    <Child y={y}></Child>
+                    </div>
+                )
+            }
+            ReactDOM.render(<Parent/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
