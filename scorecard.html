@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+          var player1 = {
+            name: "Laxman",
+            set: 0,
+            score: 0,
+            strike: false,
+            Status:" "
+          }
+          var player2 = {
+            name: "Srikanth",
+            set: 0,
+            score: 0,
+            strike: true,
+            Status:" "
+          }
+          function pqr() {
+            player1.score++;
+            player1.strike = true;
+            player2.strike = false;
+            
+            if (player1.score >= 21 && player1.score-player2.score>=2) {
+              player1.set++;
+              player1.score = 0;
+              player2.score = 0;
+              player1.Status="WIN"
+              player2.Status="LOSS"
+            }
+            abc();
+          }
+          function xyz() {
+            player2.score++;
+            player2.strike = true;
+            player1.strike = false;
+            
+            if (player2.score >= 21 && player2.score-player1.score>=2) {
+              player2.set++;
+              player1.score = 0;
+              player2.score = 0;
+              player2.Status='WIN'
+              player1.Status="LOSS"
+            }
+            abc();
+          }
+
+          function abc() {
+            var a = (
+            
+             <center style={{margin:"20%"}}>
+                <h1>Badminton Scoreboard</h1>
+                <table className="table table-bordered table-warning w-50">
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Set</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{player1.name} {player1.strike && <button>s</button>}</td>
+                    <td>{player1.set}</td>
+                    <td>{player1.score}</td>
+                    <td>{player1.Status}</td>
+                    <td><button onClick={pqr}>Add point</button></td>
+                  </tr>
+                  <tr>
+                    <td>{player2.name} {player2.strike && <button>s</button>}</td>
+                    <td>{player2.set}</td>
+                    <td>{player2.score}</td>
+                    <td>{player2.Status}</td>
+                    <td><button onClick={xyz}>Add point</button></td>
+                  </tr>
+                </tbody>
+              </table>    
+            </center>
+            );
+            ReactDOM.render(a, document.getElementById("root"));
+          }
+          abc();
+        </script>
+    </body>
+</html>
+
