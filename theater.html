@@ -1,0 +1,212 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function Theater(){
+                var [x,setX]=React.useState([
+                    {
+                    type:"HIGH",
+                    A:[
+                        {
+                        seatno:1,
+                        price:300,
+                        status:false
+                    },
+                    {
+                        seatno:2,
+                        price:300,
+                        status:false
+                    },
+                    {
+                        seatno:3,
+                        price:300,
+                        status:false
+                    },
+                    {
+                        seatno:4,
+                        price:300,
+                        status:false
+                    },
+                    {
+                        seatno:5,
+                        price:300,
+                        status:false
+                    },
+                    {
+                        seatno:6,
+                        price:300,
+                        status:false
+                    },   
+                    {
+                        seatno:7,
+                        price:300,
+                        status:false
+                    },   
+                    {
+                        seatno:8,
+                        price:300,
+                        status:false
+                    },   
+                    {
+                        seatno:9,
+                        price:300,
+                        status:false
+                    },
+                    {
+                        seatno:10,
+                        price:300,
+                        status:false
+                    },
+                ]
+                },
+                {
+                    type:"CLASS",
+                    A:[
+                        {
+                        seatno:1,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:2,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:3,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:4,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:5,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:6,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:7,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:8,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:9,
+                        price:200,
+                        status:false
+                    },
+                    {
+                        seatno:10,
+                        price:200,
+                        status:false
+                    },
+                    
+                ]
+                },
+                {
+                    type:"MASS",
+                    A:[
+                        {
+                        seatno:1,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:2,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:3,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:4,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:5,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:6,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:7,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:8,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:9,
+                        price:100,
+                        status:false
+                    },
+                    {
+                        seatno:10,
+                        price:100,
+                        status:false
+                    },
+                    
+                ]
+                }
+            ])
+        
+            function abc(i,id){
+                
+            var temp = [...x];
+            temp[i].A[id].status=!temp[i].A[id].status;
+            setX([...temp])
+            }
+               return(
+                
+                <table border="2" cellspacing="5px" cellpadding="10px">  <h1>archana </h1>
+                    {
+                        x.map(function(f,i){
+                            return <div key={i}>
+                              
+                                <tr>{f.type}</tr> 
+                                <tr align="center">{f.A.map(function(b,id){
+                                    return  <td key={id} style={b.status ? 
+                                                {backgroundColor:"green", padding:"5px", border:"1px solid", width:"20px"} 
+                                                : {backgroundColor:"white", padding:"5px", border:"1px solid", width:"20px"}}
+                                                onClick={()=>{abc(i,id)}}>{b.seatno}</td>
+                                })}
+                              </tr>
+                             </div>
+                        })
+                    }   
+                    </table>
+               )
+            }
+            ReactDOM.render(<Theater />,document.getElementById("root"))
+        </script>
+    </body>
+</html>
